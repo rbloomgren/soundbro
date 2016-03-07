@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package soundbro;
 
 import java.io.*;
@@ -12,18 +8,15 @@ import javax.sound.sampled.*;
 
 public class Soundbro {
 
-    // Constructor
     public Soundbro() {
 
         try {
-            File myFile = new File("C:\\soundbro\\sound.wav");
+            File myFile = new File("C:\\soundbro\\sound.wav");//file location
             URL myUrl = myFile.toURI().toURL();
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(myUrl);
 
-            // Get a sound clip resource.
-            Clip clip = AudioSystem.getClip();
-            // Open audio clip and load samples from the audio input stream.
-            clip.open(audioIn);
+            Clip clip = AudioSystem.getClip();//get resource
+            clip.open(audioIn);// Open audio clip and load samples from the audio input stream.
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
             while(true)try {
